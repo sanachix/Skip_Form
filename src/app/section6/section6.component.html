@@ -1,0 +1,147 @@
+<form action="your-action" (submit)="onFormSubmit($event)" visible = "true">
+    <dx-form id="form"
+        [readOnly]="false"
+        [showColonAfterLabel]="true"
+        [showValidationSummary]="true"
+        validationGroup="customerData"
+        labelLocation="top"
+        [width] = "1000">
+
+        <dxi-item>
+            <dx-data-grid [dataSource]="emrData" 
+              [showBorders]="true"
+              [showRowLines]="true"
+              (onContentReady)="onContentReady($event)"
+              wordWrapEnabled="true"
+  
+              >
+  
+              <dxo-paging [enabled]="false"></dxo-paging>
+              
+              <dxo-editing mode="row" [allowUpdating]="true"  
+              [useIcons]="true">
+              </dxo-editing>
+
+           
+  
+              <dxi-column dataField="Year" alignment="center"  [editorOptions]="{ 
+                mask: '2\\000',
+                useMaskedValue: true,
+                maskInvalidMessage: 'Please enter a valid year'
+                }">
+              </dxi-column>
+    
+              <dxi-column dataField="EMR" alignment="center"></dxi-column>
+             
+              
+            </dx-data-grid>
+              
+          </dxi-item>
+        
+        <dxi-item>
+            <dx-data-grid [dataSource]="osha_300a" 
+              [showBorders]="true"
+              [showRowLines]="true"
+              (onContentReady)="onContentReady($event)"
+              wordWrapEnabled="true"
+  
+              >
+  
+              <dxo-paging [enabled]="false"></dxo-paging>
+              
+              <dxo-editing mode="row" [allowUpdating]="true"  
+              [useIcons]="true">
+  
+           
+  
+              </dxo-editing>
+              <dxi-column dataField="_" cellTemplate="rowTemplateName" 
+                [width]="300" alignment="center" [allowSorting]="false"
+                [allowFiltering]="false" [allowEditing]="false" 
+                > 
+              </dxi-column>
+  
+              <dxi-column dataField="1st Year" alignment="center"  [editorOptions]="{ 
+                mask: '2\\000',
+                useMaskedValue: true,
+                maskInvalidMessage: 'Please enter a valid year'
+                }">
+              </dxi-column>
+  
+              <dxi-column dataField="2nd Year" alignment="center" [editorOptions]="{ 
+                mask: '2\\000',
+                useMaskedValue: true,
+                maskInvalidMessage: 'Please enter a valid year'
+                }">
+              </dxi-column>
+  
+              <dxi-column dataField="3rd Year" alignment="center" [editorOptions]="{ 
+                mask: '2\\000',
+                useMaskedValue: true,
+                maskInvalidMessage: 'Please enter a valid year'
+                }">
+              </dxi-column>
+  
+  
+           
+              <div *dxTemplate="let data of 'cellTemplate'" >
+                <span  >
+                    {{data.value}}
+                </span> 
+                <td ></td> 
+              </div>
+              
+              <tbody *dxTemplate="let osha_300a of 'rowTemplateName'" >
+                <td>{{osha_300a.data._}}<br><span>{{osha_300a.data.Ref}}</span></td>
+              </tbody>
+             
+              
+            </dx-data-grid>
+              
+          </dxi-item>
+
+        
+          <dxi-item>
+              <dx-data-grid [dataSource]="violationsData" 
+                [showBorders]="true"
+                [showRowLines]="true"
+                (onContentReady)="onContentReady($event)"
+                wordWrapEnabled="true"
+    
+                >
+    
+                <dxo-paging [enabled]="false"></dxo-paging>
+                
+                <dxo-editing mode="row" [allowUpdating]="true"  
+                [useIcons]="true">
+                </dxo-editing>
+  
+             
+    
+                <dxi-column dataField="Year" alignment="center"  [editorOptions]="{ 
+                  mask: '2\\000',
+                  useMaskedValue: true,
+                  maskInvalidMessage: 'Please enter a valid year'
+                  }">
+                </dxi-column>
+      
+                <dxi-column dataField="violations" alignment="center"></dxi-column>
+               
+                
+              </dx-data-grid>
+                
+            </dxi-item>
+  
+
+        
+  
+  
+        
+    <dxi-item 
+        itemType="button"
+        alignment="left"
+        [buttonOptions]="buttonOptions">
+    </dxi-item>
+        
+    </dx-form>
+  </form>

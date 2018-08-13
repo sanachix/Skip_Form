@@ -1,0 +1,121 @@
+<form action="your-action" (submit)="onFormSubmit($event)" visible = "true">
+    <dx-form id="form"
+        [readOnly]="false"
+        [showColonAfterLabel]="true"
+        [showValidationSummary]="true"
+        validationGroup="customerData"
+        labelLocation="top"
+        [width] = "1000">
+      
+      <dxi-item >
+        <dx-data-grid [dataSource]="branch" keyExpr="ID">
+          <dxo-editing 
+            mode="batch"
+            [allowUpdating]="true"
+            [allowDeleting]="true"
+            [allowAdding]="true"
+           >
+          </dxo-editing>
+          <dxi-column dataField="BranchName">
+            <dxi-validation-rule 
+              type="required"
+              message="Branch Name is required">
+            </dxi-validation-rule>
+          </dxi-column>
+          <dxi-column dataField="Street">
+            <dxi-validation-rule 
+              type="required"
+              message="Street is required">
+            </dxi-validation-rule>
+          </dxi-column>
+          <dxi-column dataField="City">
+            <dxi-validation-rule 
+              type="required"
+              message="City is required">
+            </dxi-validation-rule>
+          </dxi-column>
+          <dxi-column dataField="State">
+            <dxi-validation-rule 
+              type="required"
+              message="State is required">
+            </dxi-validation-rule>
+            <dxo-lookup [dataSource]="states">   
+            </dxo-lookup>
+          </dxi-column>
+          <dxi-column dataField="Zip Code">
+            <dxi-validation-rule 
+              type="required"
+              message="Zip Code is required">
+            </dxi-validation-rule>
+            <dxi-validation-rule 
+                type="pattern"
+                pattern = "^[0-9]+$"
+                message="Zip Code can only be a numeric value">
+            </dxi-validation-rule>
+          </dxi-column>
+          <dxi-column dataField="Phone Number" [editorOptions]="{ 
+            mask: '(000) 000-0000',
+            
+            useMaskedValue: true,
+            maskInvalidMessage: 'The phone must have a correct USA phone format'
+            }">
+              <dxi-validation-rule 
+              type="pattern">
+            </dxi-validation-rule>
+          </dxi-column>
+
+        </dx-data-grid>
+      </dxi-item>
+        
+      <dxi-item editorType="dxTextArea" [editorOptions]="{placeholder:'List 
+        any union trade agreements you presently have in effect.
+        Are all your union benefits current?', heght:90}">
+       
+      </dxi-item>
+      
+      
+        <dxi-item editorType="dxTextArea" [editorOptions]="{placeholder:'List the construction experience of the 
+          principal individuals of your organization. (or provide
+          resume)', heght:90}">
+          
+        </dxi-item>
+
+        <dxi-item>
+            <div class="form-group">
+                <input type="file" class="form-control-file" id="exampleFormControlFile1">
+            </div>
+        </dxi-item>
+
+        <dxi-item editorType="dxTextArea" [editorOptions]="{placeholder:'Have you ever failed to complete 
+          any work awarded to you? If so, note what, when, where, and
+          why.', heght:90}">
+        
+        </dxi-item>
+
+        <dxi-item editorType="dxTextArea" [editorOptions]="{placeholder:'Have you ever performed work for 
+          Deepwater Wind: Is so, state project names, locations,
+          work performed and Deepwater representative.', heght:90}">
+        
+        </dxi-item>
+      
+
+        <dxi-item editorType="dxTextArea" [editorOptions]="{placeholder:'Enterin the name, address, agent phone 
+          number,and current limits of your insurance company.', heght:90}">
+        
+        </dxi-item>
+            
+    
+  
+        
+    <dxi-item 
+        itemType="button"
+        alignment="left"
+        [buttonOptions]="buttonOptions">
+    </dxi-item>
+        
+    </dx-form>
+  </form>
+
+  
+  
+  

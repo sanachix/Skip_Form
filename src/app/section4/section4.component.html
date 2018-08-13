@@ -1,0 +1,170 @@
+<form action="your-action" (submit)="onFormSubmit($event)" visible = "true">
+    <dx-form id="form"
+        [readOnly]="false"
+        [showColonAfterLabel]="true"
+        [showValidationSummary]="true"
+        validationGroup="customerData"
+        labelLocation="top"
+        [width] = "500">
+
+        <dxi-item itemType="tabbed" [tabPanelOptions]="{ deferRendering: false }">
+          <dxi-tab title ="Insurance Company Information">
+            <dxi-item  dataField="ICI_Name" >
+              <dxi-validation-rule 
+                type="required"
+                message="Name is required">
+              </dxi-validation-rule>
+           </dxi-item>
+
+           <dxi-item dataField="ICI_Street">
+              <dxi-validation-rule 
+                type="required"
+                message="Street is required">
+              </dxi-validation-rule>
+           </dxi-item>
+
+           <dxi-item dataField="ICI_City">
+              <dxi-validation-rule 
+                type="required"
+                message="City is required">
+              </dxi-validation-rule>
+              <dxi-validation-rule 
+                type="pattern"
+                pattern = "^[a-zA-Z]+$"
+                message="City cannot include a numeric value">
+            </dxi-validation-rule>
+           </dxi-item>
+          <!--The state field needs to be redone it since currently it does not execute validation behavior-->
+           <dxi-item dataField="ICI_State" >
+            <dxi-validation-rule 
+              type="required"
+              message="State is required">
+            </dxi-validation-rule>  
+            <dx-lookup
+                [items]="states"
+                searchMode="startsWith"
+                [showPopupTitle]="false"
+                >
+                <dx-validator [validationRules]="{type:required}"></dx-validator>
+              </dx-lookup>
+              
+           </dxi-item>
+
+           <dxi-item dataField="ICI_Zip Code">
+              <dxi-validation-rule 
+                type="required"
+                message="Zip Code is required">
+              </dxi-validation-rule>
+              <dxi-validation-rule 
+                type="pattern"
+                pattern = "^[0-9]+$"
+                message="Zip Code can only be a numeric value">
+              </dxi-validation-rule>
+           </dxi-item>
+
+           <dxi-item dataField="ICI_Phone" [editorOptions]="{ 
+            mask: '(000) 000-0000',
+            
+            useMaskedValue: true,
+            maskInvalidMessage: 'The phone must have a correct USA phone format'
+            }">
+              <dxi-validation-rule 
+                type="required"
+                message="Phone is required">
+              </dxi-validation-rule>
+           </dxi-item>
+
+           <dxi-item  editorType="dxTextArea" [editorOptions]="{placeholder:'Current limits'}">
+              <dxi-validation-rule 
+                type="required"
+                message="This is required">
+              </dxi-validation-rule>
+           </dxi-item>
+          </dxi-tab>
+
+          <dxi-tab  title ="Bonding Company Information">
+              <dxi-item  dataField="BCI_Name">
+                <dxi-validation-rule 
+                  type="required"
+                  message="Name is required">
+                </dxi-validation-rule>
+             </dxi-item>
+  
+             <dxi-item dataField="BCI_Street">
+                <dxi-validation-rule 
+                  type="required"
+                  message="Street is required">
+                </dxi-validation-rule>
+             </dxi-item>
+  
+             <dxi-item dataField="BCI_City">
+                <dxi-validation-rule 
+                  type="required"
+                  message="City is required">
+                </dxi-validation-rule>
+                <dxi-validation-rule 
+                  type="pattern"
+                  pattern = "^[a-zA-Z]+$"
+                  message="City cannot include a numeric value">
+              </dxi-validation-rule>
+             </dxi-item>
+            <!--The state field needs to be redone it since currently it does not execute validation behavior-->
+             <dxi-item dataField="BCI_State" >
+              <dxi-validation-rule 
+                type="required"
+                message="State is required">
+              </dxi-validation-rule>  
+              <dx-lookup
+                  [items]="states"
+                  searchMode="startsWith"
+                  [showPopupTitle]="false">
+                  <dx-validator [validationRules]="{type:required}"></dx-validator> 
+                </dx-lookup>
+                
+             </dxi-item>
+  
+             <dxi-item dataField="BCI_Zip Code">
+                <dxi-validation-rule 
+                  type="required"
+                  message="Zip Code is required">
+                </dxi-validation-rule>
+                <dxi-validation-rule 
+                  type="pattern"
+                  pattern = "^[0-9]+$"
+                  message="Zip Code can only be a numeric value">
+                </dxi-validation-rule>
+             </dxi-item>
+  
+             <dxi-item dataField="BCI_Phone" [editorOptions]="{ 
+              mask: '(000) 000-0000',
+              
+              useMaskedValue: true,
+              maskInvalidMessage: 'The phone must have a correct USA phone format'
+              }">
+                <dxi-validation-rule 
+                  type="required"
+                  message="Phone is required">
+                </dxi-validation-rule>
+             </dxi-item>
+  
+             <dxi-item  editorType="dxTextArea" [editorOptions]="{placeholder:'Current limits'}">
+                <dxi-validation-rule 
+                  type="required"
+                  message="This is required">
+                </dxi-validation-rule>
+             </dxi-item>
+            </dxi-tab>
+
+        </dxi-item>
+
+  
+  
+        
+    <dxi-item 
+        itemType="button"
+        alignment="left"
+        [buttonOptions]="buttonOptions">
+    </dxi-item>
+        
+    </dx-form>
+  </form>

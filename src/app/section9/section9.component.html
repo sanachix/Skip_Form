@@ -1,0 +1,35 @@
+<form action="your-action" (submit)="onFormSubmit($event)" visible = "true">
+    <dx-form id="form"
+        [readOnly]="false"
+        [showColonAfterLabel]="true"
+        [showValidationSummary]="true"
+        validationGroup="customerData"
+        labelLocation="top"
+        [width] = "500">
+      
+
+      <dxi-item editorType="dxTextArea" [editorOptions]="{placeholder:'Has your firm ever had financial 
+        difficulties that resulted in declaring Chapter 11? Have any vendors put liens against your firm?',
+        heght:190}">
+      </dxi-item>
+
+      <dxi-item editorType="dxTextArea" [editorOptions]="{placeholder:'If your firm is a minority or 
+        woman-owned firm, list all locations in which you are certified and the certification numbers.',
+        heght:190}">
+      </dxi-item>
+            
+    
+  
+        
+    <dxi-item 
+        itemType="button"
+        alignment="left"
+        [buttonOptions]="buttonOptions">
+    </dxi-item>
+        
+    </dx-form>
+  </form>
+
+  
+  
+  

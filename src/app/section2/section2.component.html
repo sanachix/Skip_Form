@@ -1,0 +1,111 @@
+<h1>Section 2</h1>
+<br>
+<form action="your-action" (submit)="onFormSubmit($event)" visible = "true">
+    <dx-form id="form"
+        [readOnly]="false"
+        [showColonAfterLabel]="true"
+        [showValidationSummary]="true"
+        validationGroup="customerData"
+        labelLocation="top"
+        [width] = "500"
+        >
+
+       
+  
+        <dxi-item editorType="dxTagBox"
+          dataField="List the states in which your organization is legally qualified to do business." 
+          [editorOptions]="{items:states, 
+            placeholder:'Select all that apply...',showSelectionControls:true 
+            ,applyValueMode:'useButtons', searchEnabled:true, 
+            hideSelectedItems:true,showClearButton:true}">
+            <dxi-validation-rule 
+              type="required"
+              message="is required">
+            </dxi-validation-rule>
+        </dxi-item>
+
+        <dxi-item itemType="group" caption="Check the types of work that your company performs." >
+          <dxi-item editorType="dxTagBox"
+            [editorOptions]="{items:codes01, 
+              placeholder:'Select all that apply...',showSelectionControls:true 
+              ,applyValueMode:'useButtons', searchEnabled:true, 
+              hideSelectedItems:true,showClearButton:true}">
+            <dxi-validation-rule 
+              type="required"
+              message="is required">
+            </dxi-validation-rule>
+          </dxi-item>
+
+          <dxi-item editorType="dxTagBox"
+            [editorOptions]="{items:codes02, 
+              placeholder:'Select all that apply...',showSelectionControls:true 
+              ,applyValueMode:'useButtons', searchEnabled:true, 
+              hideSelectedItems:true,showClearButton:true}">
+            <dxi-validation-rule 
+              type="required"
+              message="is required">
+            </dxi-validation-rule>
+          </dxi-item>
+
+          <dxi-item editorType="dxTagBox"
+            [editorOptions]="{items:codes03, 
+              placeholder:'Select all that apply...',showSelectionControls:true 
+              ,applyValueMode:'useButtons', searchEnabled:true, 
+              hideSelectedItems:true,showClearButton:true}">
+            <dxi-validation-rule 
+              type="required"
+              message="is required">
+            </dxi-validation-rule>
+          </dxi-item>
+
+          <dxi-item editorType="dxTagBox"
+          [editorOptions]="{items:codes04, 
+            placeholder:'Select all that apply...',showSelectionControls:true 
+            ,applyValueMode:'useButtons', searchEnabled:true, 
+            hideSelectedItems:true,showClearButton:true}">
+          <dxi-validation-rule 
+            type="required"
+            message="is required">
+          </dxi-validation-rule>
+        </dxi-item>
+
+        <dxi-item editorType="dxTagBox"
+        [editorOptions]="{items:codes05, 
+          placeholder:'Select all that apply...',showSelectionControls:true 
+          ,applyValueMode:'useButtons', searchEnabled:true, 
+          hideSelectedItems:true,showClearButton:true}">
+        <dxi-validation-rule 
+          type="required"
+          message="is required">
+        </dxi-validation-rule>
+      </dxi-item>
+
+      <dxi-item editorType="dxTagBox"
+        [editorOptions]="{items:codes06, 
+          placeholder:'Select all that apply...',showSelectionControls:true 
+          ,applyValueMode:'useButtons', searchEnabled:true, 
+          hideSelectedItems:true,showClearButton:true}">
+        <dxi-validation-rule 
+          type="required"
+          message="is required">
+        </dxi-validation-rule>
+      </dxi-item>
+
+
+          
+
+        </dxi-item>
+        
+  
+  
+        
+    <dxi-item 
+        itemType="button"
+        alignment="left"
+        [buttonOptions]="buttonOptions">
+    </dxi-item>
+        
+    </dx-form>
+  </form>
+  
+  

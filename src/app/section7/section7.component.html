@@ -1,0 +1,178 @@
+<form action="your-action" (submit)="onFormSubmit($event)" visible = "true">
+    <dx-form id="form"
+        [readOnly]="false"
+        [showColonAfterLabel]="true"
+        [showValidationSummary]="true"
+        validationGroup="customerData"
+        labelLocation="top"
+        [width] = "1510">
+
+    
+           <dxi-item>
+                <div class="dx-field">
+                        <div class="dx-field-label">Were any of the citations in section 15 
+                            (above) willful or repeat violations? </div>
+                        <div class="dx-field-value">
+                            <dx-radio-group
+                                [items]="YesNo"
+                                [value]="YesNo[1]"
+                                layout="horizontal">
+                            </dx-radio-group>
+                        </div>
+                </div>
+           </dxi-item> 
+
+           <dxi-item>
+                <div class="dx-field">
+                        <div class="dx-field-label">Do you have a full-time qualified 
+                            person responsible for safety with-in your company? </div>
+                        <div class="dx-field-value">
+                            <dx-radio-group
+                                [items]="YesNo"
+                                [value]="YesNo[1]"
+                                layout="horizontal">
+                            </dx-radio-group>
+                        </div>
+                </div>
+           </dxi-item> 
+
+           <dxi-item>
+                <div class="dx-field">
+                        <div class="dx-field-label">Do you have a written company safety policy and program?
+                        </div>
+                        <div class="dx-field-value">
+                            <dx-radio-group
+                                [items]="YesNo"
+                                [value]="YesNo[1]"
+                                layout="horizontal">
+                            </dx-radio-group>
+                        </div>
+                </div>
+           </dxi-item> 
+
+           <dxi-item>
+                <div class="dx-field">
+                        <div class="dx-field-label">Does your company have a substance abuse policy?
+                        </div>
+                        <div class="dx-field-value">
+                            <dx-radio-group
+                                [items]="YesNo"
+                                [value]="YesNo[1]"
+                                layout="horizontal">
+                            </dx-radio-group>
+                        </div>
+                </div>
+           </dxi-item> 
+
+           <dxi-item>
+                <div class="dx-field">
+                        <div class="dx-field-label">Do you have a return to work light duty program?
+                        </div>
+                        <div class="dx-field-value">
+                            <dx-radio-group
+                                [items]="YesNo"
+                                [value]="YesNo[1]"
+                                layout="horizontal">
+                            </dx-radio-group>
+                        </div>
+                </div>
+           </dxi-item> 
+
+           <dxi-item>
+                <div class="dx-field">
+                        <div class="dx-field-label">Does your company provide 
+                            safety training for all employees? 
+                        </div>
+                        <div class="dx-field-value">
+                            <dx-radio-group
+                                [items]="YesNo"
+                                [value]="YesNo[1]"
+                                layout="horizontal">
+                            </dx-radio-group>
+                        </div>
+                </div>
+           </dxi-item> 
+
+           <dxi-item>
+                <div class="dx-field">
+                        <div class="dx-field-label">Does your company have a program recognizing 
+                            employees for safety performance excellence?   
+                        </div>
+                        <div class="dx-field-value">
+                            <dx-radio-group
+                                [items]="YesNo"
+                                [value]="YesNo[1]"
+                                layout="horizontal">
+                            </dx-radio-group>
+                        </div>
+                </div>
+           </dxi-item> 
+
+           <dxi-item>
+                <div class="dx-field">
+                        <div class="dx-field-label">Does your company have a written disciplinary 
+                            program in place for safety violations?    
+                        </div>
+                        <div class="dx-field-value">
+                            <dx-radio-group
+                                [items]="YesNo"
+                                [value]="YesNo[1]"
+                                layout="horizontal">
+                            </dx-radio-group>
+                        </div>
+                </div>
+           </dxi-item> 
+
+           <dxi-item>
+                <div class="dx-field">
+                        <div class="dx-field-label">Does your company review the safety 
+                            management systems of your subcontractors?     
+                        </div>
+                        <div class="dx-field-value">
+                            <dx-radio-group
+                                [items]="YesNo"
+                                [value]="YesNo[1]"
+                                layout="horizontal">
+                            </dx-radio-group>
+                        </div>
+                </div>
+           </dxi-item> 
+
+           <dxi-item>
+                <div class="dx-field">
+                        <div class="dx-field-label">Does your company conduct accident
+                            /incident / near miss investigations?      
+                        </div>
+                        <div class="dx-field-value">
+                            <dx-radio-group
+                                [items]="YesNo"
+                                [value]="YesNo[1]"
+                                layout="horizontal">
+                            </dx-radio-group>
+                        </div>
+                </div>
+           </dxi-item> 
+
+           <dxi-item>
+                <div class="dx-field">
+                        <div class="dx-field-label">Does your company have a formal, written job 
+                            / task hazard analysis process?      
+                        </div>
+                        <div class="dx-field-value">
+                            <dx-radio-group
+                                [items]="YesNo"
+                                [value]="YesNo[1]"
+                                layout="horizontal">
+                            </dx-radio-group>
+                        </div>
+                </div>
+           </dxi-item> 
+        
+    <dxi-item 
+        itemType="button"
+        alignment="left"
+        [buttonOptions]="buttonOptions">
+    </dxi-item>
+        
+    </dx-form>
+  </form>

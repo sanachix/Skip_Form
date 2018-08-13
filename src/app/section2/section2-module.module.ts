@@ -1,10 +1,9 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { Section2Component } from '@app/section2/section2.component';
 import { BrowserModule } from '../../../node_modules/@angular/platform-browser';
-import { DxFormModule, DxCheckBoxComponent, DxButtonModule, DxAutocompleteModule, DxNumberBoxModule, DxCheckBoxModule, DxDropDownBoxModule, DxListModule, DxTreeViewModule, DxValidatorModule } from '../../../node_modules/devextreme-angular';
-import { Section1Component } from '@app/section1/section1.component';
+import { DxFormModule, DxCheckBoxModule, DxButtonModule, DxAutocompleteModule, DxNumberBoxModule, DxListModule, DxTreeViewModule, DxValidatorModule, DxDropDownBoxModule, DxTreeListModule, DxTagBoxModule } from '../../../node_modules/devextreme-angular';
 import { DxiItemModule } from '../../../node_modules/devextreme-angular/ui/nested/item-dxi';
-
 
 @NgModule({
   imports: [
@@ -19,13 +18,15 @@ import { DxiItemModule } from '../../../node_modules/devextreme-angular/ui/neste
     DxiItemModule,
     DxTreeViewModule,
     DxValidatorModule,
+    DxTreeListModule,
+    DxTagBoxModule,
     DxDropDownBoxModule
   ],
   exports:[
-    Section1Component
+    Section2Component
   ],
   declarations: [
-    Section1Component
+    Section2Component
   ]
 })
-export class Section1Module { }
+export class Section2ModuleModule { }

@@ -1,3 +1,193 @@
-<p>
-  section1 works!
-</p>
+<form action="your-action" (submit)="onFormSubmit($event)" visible = "true">
+  <dx-form id="form"
+      [readOnly]="false"
+      [showColonAfterLabel]="true"
+      [showValidationSummary]="true"
+      validationGroup="customerData"
+      labelLocation="top"
+      [width] = "1000"
+      >
+
+      <dxi-item dataField="Company Name">
+        <dxi-validation-rule 
+            type="required"
+            message="Company Name is required">
+        </dxi-validation-rule>
+    </dxi-item>
+      <dxi-item itemType="group" caption="1st" [colCount] = 2>
+          
+          <dxi-item dataField="Representative" >
+              <dxi-validation-rule 
+                  type="required"
+                  message="Representative is required"
+                  >
+              </dxi-validation-rule>
+          </dxi-item>
+          <dxi-item dataField="Title">
+            
+          </dxi-item>
+      </dxi-item>
+
+      <dxi-item itemType="group" caption="2nd" [colCount] = 2>
+          
+        <dxi-item dataField="Street">
+            <dxi-validation-rule 
+                type="required"
+                message="Street is required"
+                >
+            </dxi-validation-rule>
+        </dxi-item>
+
+        <dxi-item dataField="City">
+                <dxi-validation-rule 
+                type="required"
+                message="City is required"
+               >
+              </dxi-validation-rule>
+            
+        </dxi-item>
+
+        <dxi-item dataField="State" editorType="dxSelectBox" 
+                [editorOptions]="{dataSource:states}">
+                <dxi-validation-rule 
+                type="required"
+                message="State is required">
+              </dxi-validation-rule>
+            
+        </dxi-item>
+
+        <dxi-item dataField="Zip Code">
+            <dxi-validation-rule 
+                type="required"
+                message="Zip Code is required">
+            </dxi-validation-rule>
+              <dxi-validation-rule 
+                type="pattern"
+                pattern = "^[0-9]+$"
+                message="Zip Code can only be a numeric value">
+            </dxi-validation-rule>
+        </dxi-item>
+
+    </dxi-item>
+
+    <dxi-item dataField="Principal Office">
+    </dxi-item>
+
+    <dxi-item itemType="group" caption="3rd" [colCount] = 2>
+          
+    <dxi-item dataField="Phone" [editorOptions]="{ 
+        mask: '+1 (000) 000-0000',
+        
+        useMaskedValue: true,
+        maskInvalidMessage: 'The phone must have a correct USA phone format'
+        }">
+       <dxi-validation-rule 
+         type="pattern"
+         >
+       </dxi-validation-rule>    
+    </dxi-item>
+
+    <dxi-item dataField="Fax" [editorOptions]="{ 
+      mask: '+1 (000) 000-0000',
+     
+      useMaskedValue: true,
+      maskInvalidMessage: 'The Fax must have a correct USA phone format'
+      }">
+     <dxi-validation-rule 
+       type="pattern"
+       >
+     </dxi-validation-rule>    
+  </dxi-item>
+      
+  </dxi-item>
+
+
+  <dxi-item itemType="group" caption="4th" [colCount] = 2>
+          
+    <dxi-item dataField="Annual Work Capacity">
+        <dxi-validation-rule 
+            type="required"
+            message="Annual Work Capacity is required"
+            >
+        </dxi-validation-rule>
+    </dxi-item>
+    <dxi-item dataField="Largest Project">
+    </dxi-item>
+    
+</dxi-item>
+
+<dxi-item dataField="MDOT MBE">
+    <dxi-validation-rule 
+        type="required"
+        message="MDOT MBE is required">
+    </dxi-validation-rule>
+</dxi-item>
+<dxi-item dataField="Small Business Reserve">
+</dxi-item>
+
+<dxi-item dataField="something" editorType ="dxDropDownBox" [editorOptions]="{dataSource: listData}">
+    <dxi-validation-rule 
+        type="required"
+        message="something is required">
+    </dxi-validation-rule>
+    <dx-drop-down-box
+                [(value)]="treeBoxValue"
+                valueExpr="id"
+                displayExpr="text"
+                placeholder="Select a value..."
+                [showClearButton]="true"
+                [dataSource]="treeDataSource"
+                (onValueChanged)="syncTreeViewSelection($event)"
+            >   <dx-validator [validationRules]="dropBoxRules"></dx-validator>
+
+                <div *dxTemplate="let data of 'content'">
+                    <dx-tree-view
+                        [dataSource]="treeDataSource"
+                        dataStructure="plain"
+                        keyExpr="id"
+                        parentIdExpr="categoryId"
+                        selectionMode="multiple"
+                        displayExpr="text"
+                        showCheckBoxesMode="normal"
+                        [selectByClick]="true"
+                        (onContentReady)="$event.component.selectItem(treeBoxValue)"
+                        (onItemSelectionChanged)="treeView_itemSelectionChanged($event)"
+                    >
+                    </dx-tree-view>
+                </div>
+            </dx-drop-down-box>
+
+</dxi-item>
+
+<dxi-item dataField="Tax ID#">
+
+</dxi-item>
+
+<dxi-item dataField="Years Active">
+  <dxi-validation-rule 
+    type="required"
+    message="Years Active is required"
+   >
+  </dxi-validation-rule>
+
+  <dxi-validation-rule 
+   type="pattern"
+    pattern = "^[0-9]+$"
+    message="Years Active only accepts a numeric value"
+   >
+  </dxi-validation-rule>
+
+ 
+</dxi-item>
+
+
+      
+  <dxi-item 
+      itemType="button"
+      alignment="left"
+      [buttonOptions]="buttonOptions">
+  </dxi-item>
+      
+  </dx-form>
+</form>
+
