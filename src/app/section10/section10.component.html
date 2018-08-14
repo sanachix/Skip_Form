@@ -52,7 +52,16 @@
       alignment="left"
       [buttonOptions]="buttonOptions">
   </dxi-item>
-      
+
+  <dxi-item >
+    <signature-pad 
+    [options]="signaturePadOptions"
+    (onBeginEvent)="drawStart()" 
+    (onEndEvent)="drawComplete()" >
+    </signature-pad>
+  </dxi-item>
+      <!--[options]="signaturePadOptions"(onBeginEvent)="drawStart()" 
+      (onEndEvent)="drawComplete()" -->
   </dx-form>
 </form>
 
